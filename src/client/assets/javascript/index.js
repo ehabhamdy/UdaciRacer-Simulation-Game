@@ -1,7 +1,7 @@
 // PROVIDED CODE BELOW (LINES 1 - 80) DO NOT REMOVE
 
 // The store will hold all information needed globally
-var store = {
+let store = {
 	track_id: undefined,
 	player_id: undefined,
 	race_id: undefined,
@@ -94,8 +94,8 @@ async function handleCreateRace() {
 					     	store.racers))
 
 	// TODO - Get player_id and track_id from the store
-	var playerId = store.player_id
-	var trackId = store.track_id
+	const playerId = store.player_id
+	const trackId = store.track_id
 
 	// const race = TODO - invoke the API call to create the race, then save the result
 	const race = await createRace(playerId, trackId)
@@ -124,8 +124,8 @@ function runRace(raceID) {
 		renderAt('#leaderBoard', raceProgress(res.positions))
 	*/
 
-		var raceInterval = setInterval(async function(){
-			var race = await getRace(raceID)
+		const raceInterval = setInterval(async function(){
+			const race = await getRace(raceID)
 			if( race.status === "in-progress") {
 				renderAt('#leaderBoard', raceProgress(race.positions))
 			} else if (race.status === "finished") {
@@ -154,7 +154,7 @@ async function runCountdown() {
 
 		return new Promise(resolve => {
 			// TODO - use Javascript's built in setInterval method to count down once per second
-			var countdown = setInterval(function(){ 
+			const countdown = setInterval(function(){ 
 				// run this DOM manipulation to decrement the countdown for the user
 				document.getElementById('big-numbers').innerHTML = --timer
 
